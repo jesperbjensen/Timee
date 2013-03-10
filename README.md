@@ -10,6 +10,11 @@ About
 -----
 Timee is a little service that lets you run a set of URL's in a given interval. It's focus on being easy to setup, and easy to use.
 
+Requirements
+------------
+* Windows of some kind.
+* .NET Framework 4.5
+
 Installation
 ------------
 1. Download the [zip file containing the latest release](http://deldysoft.cloudapp.net/timee/1.0.0.0.zip). 
@@ -52,4 +57,4 @@ Built on this stuff
 
 Contribute
 ----------
-I whould love for people to help me building this great little tool, and making it more robust. Contact me if you like to help, or create a work, and make a pull request.
+I whould love for people to help me building this great little tool, and making it more robust. Contact me if you like to help, or create a fork, and make a pull request.

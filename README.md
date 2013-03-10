@@ -10,7 +10,7 @@ Timee is a little service that lets you run a set of URL's in a given interval. 
 
 Installation
 ------------
-1. Download the zip file containing the latest release. 
+1. Download the [zip file containing the latest release](http://deldysoft.cloudapp.net/timee/1.0.0.0.zip). 
 2. Put the content in a good place on your server. (Or on your local machine for testing)
 3. Run INSTALL.bat as a **Administrator**.
 4. Done! Open your browser (on the server) and goto http://localhost:8888, and configure the service.

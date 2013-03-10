@@ -4,6 +4,8 @@ The little job service that could.
  
 **This is a alpha release. It should work, but alot of work is still missing. Use it at your own risk.**
 
+![Screenshot](http://deldysoft.cloudapp.net/timee/screenshot.png)
+
 About
 -----
 Timee is a little service that lets you run a set of URL's in a given interval. It's focus on being easy to setup, and easy to use.

@@ -42,8 +42,23 @@
     <Reference Include="Nancy.ViewEngines.Razor">
       <HintPath>..\packages\Nancy.Viewengines.Razor.0.16.1\lib\net40\Nancy.ViewEngines.Razor.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Reactive.Core">
+      <HintPath>..\packages\Rx-Core.2.1.30214.0\lib\Net45\System.Reactive.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.Interfaces">
+      <HintPath>..\packages\Rx-Interfaces.2.1.30214.0\lib\Net45\System.Reactive.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.Linq">
+      <HintPath>..\packages\Rx-Linq.2.1.30214.0\lib\Net45\System.Reactive.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.PlatformServices">
+      <HintPath>..\packages\Rx-PlatformServices.2.1.30214.0\lib\Net45\System.Reactive.PlatformServices.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.Razor, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\System.Web.Razor.Unofficial.2.0.1\lib\net40\System.Web.Razor.dll</HintPath>
@@ -58,21 +73,38 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Job.cs" />
+    <Compile Include="JobManager.cs" />
+    <Compile Include="JobStatus.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Run.cs" />
     <Compile Include="Timee.cs" />
     <Compile Include="TimmeNancyModule.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
+    <None Include="app.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
-    <None Include="Scripts\jquery-1.9.1.min.map">
+    <None Include="Content\Scripts\jquery-1.9.1.min.map">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Views\add.cshtml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Views\edit.cshtml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Views\details.cshtml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Views\index.cshtml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="web.config" />
+    <None Include="web.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-responsive.css">
@@ -93,19 +125,19 @@
     <Content Include="Content\images\glyphicons-halflings.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Scripts\bootstrap.js">
+    <Content Include="Content\Scripts\bootstrap.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Scripts\bootstrap.min.js">
+    <Content Include="Content\Scripts\bootstrap.min.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Scripts\jquery-1.9.1.intellisense.js">
+    <Content Include="Content\Scripts\jquery-1.9.1.intellisense.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Scripts\jquery-1.9.1.js">
+    <Content Include="Content\Scripts\jquery-1.9.1.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Scripts\jquery-1.9.1.min.js">
+    <Content Include="Content\Scripts\jquery-1.9.1.min.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="Views\_Layout.cshtml">

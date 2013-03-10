@@ -27,18 +27,16 @@
 
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="navbar-inner">
-            <div class="container">
+            <div class="container-fluid">
                 <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="brand" href="#">Timee</a>
+                <a class="brand" href="/">Timee</a>
                 <div class="nav-collapse collapse">
                     <ul class="nav">
-                        <li class="active"><a href="#">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="/add">Add job</a></li>
                     </ul>
                 </div>
                 <!--/.nav-collapse -->
@@ -46,7 +44,7 @@
         </div>
     </div>
 
-    <div class="container">
+    <div class="container-fluid">
         
         @RenderBody()
 
@@ -56,19 +54,24 @@
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="/Scripts/jquery.js"></script>
-    <script src="/Scripts/bootstrap-transition.js"></script>
-    <script src="/Scripts/bootstrap-alert.js"></script>
-    <script src="/Scripts/bootstrap-modal.js"></script>
-    <script src="/Scripts/bootstrap-dropdown.js"></script>
-    <script src="/Scripts/bootstrap-scrollspy.js"></script>
-    <script src="/Scripts/bootstrap-tab.js"></script>
-    <script src="/Scripts/bootstrap-tooltip.js"></script>
-    <script src="/Scripts/bootstrap-popover.js"></script>
-    <script src="/Scripts/bootstrap-button.js"></script>
-    <script src="/Scripts/bootstrap-collapse.js"></script>
-    <script src="/Scripts/bootstrap-carousel.js"></script>
-    <script src="/Scripts/bootstrap-typeahead.js"></script>
+    <script src="/Content/Scripts/jquery-1.9.1.min.js"></script>
+    <script src="/Content/Scripts/bootstrap.min.js"></script>
+    
+    <script type="text/javascript">
+        $(function() {
+            $("*[data-autoupdate]").each(function() {
+                var timeout = parseInt($(this).attr("data-autoupdate")) * 1000;
+                var id = $(this).attr("id");
+                console.log(timeout);
 
+                setInterval(function() { update(id); }, timeout);
+            });
+            
+            function update(id) {
+                $("#" + id).load(window.location + " #" + id + ">*");
+            }
+        });
+
+    </script>
 </body>
 </html>

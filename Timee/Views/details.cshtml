@@ -1,0 +1,30 @@
+﻿@using System.Linq
+@inherits NancyRazorViewBase<Job>
+
+@{ Layout = "_Layout.cshtml"; }
+
+<h1>Details: @Model.Name</h1>
+
+<table data-autoupdate="5" id="jobs" class="table table-striped table-bordered" style="table-layout:fixed;">
+    <thead>
+        <tr>
+            <td>Started at</td>
+            <td>Finished at</td>
+            <td>RunTime</td>
+            <td>Status</td>
+            <td width="80%">Message</td>
+        </tr>
+    </thead>
+    @foreach (var run in Model.GetRuns().Reverse())
+    {
+        <tr>
+            <td>@run.StartedAt</td>
+            <td>@run.FinishedAt</td>
+            <td>@run.RunTime</td>
+            <td>@run.Status</td>
+            <td style='text-overflow: ellipsis; overflow: hidden; white-space: nowrap;'>
+                @((run.Message ?? run.ExceptionText))
+            </td>
+        </tr>
+    }
+</table>

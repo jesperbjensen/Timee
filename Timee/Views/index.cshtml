@@ -1,4 +1,40 @@
-﻿@{ Layout = "_Layout.cshtml"; }
-<h1>Bootstrap starter template</h1>
-        <p>Use this document as a way to quick start any new project.<br>
-            All you get is this message and a barebones HTML document.</p>
+﻿@using System.Linq
+@{ Layout = "_Layout.cshtml"; }
+<h1>Dashboard</h1>
+
+<table data-autoupdate="5" id="jobs" class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <td>Name</td>
+            <td>Status</td>
+            <td>Last run</td>
+            <td>Last status</td>
+            <td>Last run time</td>
+            <td>Actions</td>
+        </tr>
+    </thead>
+    @foreach (var job in JobManager.ListJobs().OrderBy(x=>x.Name))
+    {
+        <tr>
+            <td>@job.Name</td>
+            <td>@job.Status</td>
+            <td>@job.LastRun</td>
+            <td>@job.LastStatus</td>
+            <td>@job.LastRunTime</td>
+            <td>
+                <div class="btn-group">
+                    <a class="btn" href="/details/@job.Id">Details</a>
+                    <a class="btn" href="/edit/@job.Id">Edit</a>
+                    @if (job.Active)
+                    {
+                        <a type="submit" href="/deactivate/@job.Id" class="btn btn-danger">Deactivate</a>
+                    }
+                    else
+                    {
+                        <a type="submit" href="/activate/@job.Id" class="btn btn-success">Activate</a>
+                    }
+                </div>
+            </td>
+        </tr>
+    }
+</table>

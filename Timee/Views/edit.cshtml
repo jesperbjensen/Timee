@@ -1,0 +1,22 @@
+﻿@using System.Linq
+@inherits NancyRazorViewBase<Job>
+@{ Layout = "_Layout.cshtml"; }
+
+<h1>Edit: @Model.Name</h1>
+<form method="POST">
+    <fieldset>
+        <p>
+            <label>Name</label>
+            <input type="text" name="name" value="@Model.Name" />
+        </p>
+        <p>
+            <label>Url</label>
+            <input type="url" name="url" value="@Model.Url" />
+        </p>
+        <p>
+            <label>Internal</label>
+            <input type="text" name="interval" value="@Model.Interval.ToString()" />
+        </p>
+        <button type="submit" class="btn">Submit</button>
+    </fieldset>
+</form>

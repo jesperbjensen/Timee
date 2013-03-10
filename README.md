@@ -12,7 +12,7 @@ Installation
 ------------
 1. Download the zip file containing the latest release. 
 2. Put the content in a good place on your server. (Or on your local machine for testing)
-3. Click on the install.bat file.
+3. Run INSTALL.bat as a **Administrator**.
 4. Done! Open your browser (on the server) and goto http://localhost:8888, and configure the service.
 5. (Optional) Add or change the port and hostname to listen to in the __app.config__ file. You can comma-seperate multiple hosts.
 

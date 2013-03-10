@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Configuration;
+using System.Linq;
 using Nancy.Hosting.Self;
 
 namespace Timee
@@ -11,7 +13,7 @@ namespace Timee
         {
             JobManager.Load();
 
-            _nancyHost = new NancyHost(new Uri("http://localhost:8888/"), new Uri("http://127.0.0.1:8888/"));
+            _nancyHost = new NancyHost(ConfigurationManager.AppSettings["hosts"].Split(',').Select(x=>new Uri(x)).ToArray());
             _nancyHost.Start();
             JobManager.Start();
         }

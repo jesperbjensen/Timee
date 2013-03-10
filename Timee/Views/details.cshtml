@@ -1,7 +1,23 @@
 ﻿@using System.Linq
 @inherits NancyRazorViewBase<Job>
 
-@{ Layout = "_Layout.cshtml"; }
+@{
+    Layout = "_Layout.cshtml";
+}
+
+@functions{
+
+    string GetMessage(Run run)
+    {
+        var message = (run.Message ?? run.ExceptionText);
+
+        if (message.Length > 200)
+            return message.Substring(0, 197) + "...";
+
+        return message;
+    }
+
+}
 
 <h1>Details: @Model.Name</h1>
 
@@ -23,7 +39,7 @@
             <td style='text-overflow: ellipsis; overflow: hidden; white-space: nowrap;'>@run.RunTime</td>
             <td style='text-overflow: ellipsis; overflow: hidden; white-space: nowrap;'>@run.Status</td>
             <td style='text-overflow: ellipsis; overflow: hidden; white-space: nowrap;'>
-                @((run.Message ?? run.ExceptionText))
+                @GetMessage(run)
             </td>
         </tr>
     }

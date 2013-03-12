@@ -43,6 +43,11 @@ namespace Timee
             var run = new Run(this);
             Runs.Add(run);
             run.Started();
+
+            // Ensure that we only saves the last 1000 runs.
+            if (Runs.Count > 1000)
+                Runs.RemoveAt(0);
+
             Save();
             return run;
         }
